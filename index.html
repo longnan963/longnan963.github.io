@@ -123,11 +123,27 @@
        }
        this.props.formHandler(obj);
    }
+</code></pre><h2 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h2><pre><code>1.在react中参数最好从根父级（app.js）向子集传递，通过props获取方便，如果从子集向父级传递参数，隔得层级比较多的时候很麻烦
+2。处理ajax数据请求时在componentDidMount方法中，即组件加载完的状态，而不是放在render方法中，通过ajax请求改变列表commentList的值，再调用一次render方法重新渲染页面。
+    $.ajax({
+        url:&apos;http://127.0.0.1:3100/api/comments&apos;,
+        type:&apos;get&apos;,
+        success:(data)=&gt;{
+            this.setState({
+                commentList:data
+            });
+        },
+        error:function(err){
+            console.log(err);
+        }
+    });
+    在setState方法执行之后，会执行一次render方法
+3如果将ajax请求放在render方法中，那么只要修改render方法中的内容就会发送请求，不合理
 </code></pre>
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://longnan963.github.io/2017/07/18/react的简单使用和注意事项/" data-id="cj58yqbgd0002f4p93e1kgf1n" class="article-share-link">Share</a>
+      <a data-url="https://longnan963.github.io/2017/07/18/react的简单使用和注意事项/" data-id="cj58yybw70002zop92t2wd0rj" class="article-share-link">Share</a>
       
       
     </footer>
@@ -164,7 +180,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://longnan963.github.io/2017/07/13/baiduNews-md/" data-id="cj58yqbg20000f4p93tg9j5kp" class="article-share-link">Share</a>
+      <a data-url="https://longnan963.github.io/2017/07/13/baiduNews-md/" data-id="cj58yybvv0000zop9vc04lg07" class="article-share-link">Share</a>
       
       
     </footer>
@@ -201,7 +217,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://longnan963.github.io/2017/07/13/我的第一个博客日志/" data-id="cj58yqbgg0003f4p94f19lvv1" class="article-share-link">Share</a>
+      <a data-url="https://longnan963.github.io/2017/07/13/我的第一个博客日志/" data-id="cj58yybw90003zop9mjzspzaf" class="article-share-link">Share</a>
       
       
     </footer>
@@ -246,7 +262,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://longnan963.github.io/2017/07/13/hello-world/" data-id="cj58yqbg90001f4p93mkz8iyh" class="article-share-link">Share</a>
+      <a data-url="https://longnan963.github.io/2017/07/13/hello-world/" data-id="cj58yybw30001zop9k69cq7l0" class="article-share-link">Share</a>
       
       
     </footer>
