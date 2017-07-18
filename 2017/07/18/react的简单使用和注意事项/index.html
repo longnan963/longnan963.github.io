@@ -11,7 +11,7 @@
 <meta property="og:url" content="https://longnan963.github.io/2017/07/18/react的简单使用和注意事项/index.html">
 <meta property="og:site_name" content="longnan">
 <meta property="og:description" content="react的安装使用全局安装create-react-app1$ npm install create-react-app -g 生成react项目1$ Create-react-app &amp;lt;项目名&amp;gt; 切换到项目名下1$ cd + &amp;lt;项目名&amp;gt; 启动项目1$ npm start 在react中渲染页面1在js模块中首先引入react12import React from &apos;re">
-<meta property="og:updated_time" content="2017-07-18T02:24:25.567Z">
+<meta property="og:updated_time" content="2017-07-18T02:31:14.701Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="react的简单使用和注意事项">
 <meta name="twitter:description" content="react的安装使用全局安装create-react-app1$ npm install create-react-app -g 生成react项目1$ Create-react-app &amp;lt;项目名&amp;gt; 切换到项目名下1$ cd + &amp;lt;项目名&amp;gt; 启动项目1$ npm start 在react中渲染页面1在js模块中首先引入react12import React from &apos;re">
@@ -110,11 +110,26 @@
   constructor(props){
     super(props);
   }
+</code></pre><h4 id="2子级向父级传递参数"><a href="#2子级向父级传递参数" class="headerlink" title="2子级向父级传递参数"></a>2子级向父级传递参数</h4><pre><code>子级向父级传递参数用自定义函数处理
+1在子集组件中自定义方法属性
+    &lt;CommentForm formHandler = {this.formHandler} /&gt;
+2在父级中声明定义方法formHandler
+  formHandler(data){
+     console.log(data);
+  }
+3在子集中声明自己的方法并调用父级声明的方法formHandler传参数
+   submitHandler(){
+       var obj = {
+           author:this.state.author,
+           comment:this.state.comment
+       }
+       this.props.formHandler(obj);
+   }
 </code></pre>
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://longnan963.github.io/2017/07/18/react的简单使用和注意事项/" data-id="cj58yh9m000025sp98bg6sidk" class="article-share-link">Share</a>
+      <a data-url="https://longnan963.github.io/2017/07/18/react的简单使用和注意事项/" data-id="cj58yqbgd0002f4p93e1kgf1n" class="article-share-link">Share</a>
       
       
     </footer>

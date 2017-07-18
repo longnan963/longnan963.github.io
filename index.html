@@ -108,11 +108,26 @@
   constructor(props){
     super(props);
   }
+</code></pre><h4 id="2子级向父级传递参数"><a href="#2子级向父级传递参数" class="headerlink" title="2子级向父级传递参数"></a>2子级向父级传递参数</h4><pre><code>子级向父级传递参数用自定义函数处理
+1在子集组件中自定义方法属性
+    &lt;CommentForm formHandler = {this.formHandler} /&gt;
+2在父级中声明定义方法formHandler
+  formHandler(data){
+     console.log(data);
+  }
+3在子集中声明自己的方法并调用父级声明的方法formHandler传参数
+   submitHandler(){
+       var obj = {
+           author:this.state.author,
+           comment:this.state.comment
+       }
+       this.props.formHandler(obj);
+   }
 </code></pre>
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://longnan963.github.io/2017/07/18/react的简单使用和注意事项/" data-id="cj58yh9m000025sp98bg6sidk" class="article-share-link">Share</a>
+      <a data-url="https://longnan963.github.io/2017/07/18/react的简单使用和注意事项/" data-id="cj58yqbgd0002f4p93e1kgf1n" class="article-share-link">Share</a>
       
       
     </footer>
@@ -149,7 +164,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://longnan963.github.io/2017/07/13/baiduNews-md/" data-id="cj58yh9lo00005sp94abcmc9s" class="article-share-link">Share</a>
+      <a data-url="https://longnan963.github.io/2017/07/13/baiduNews-md/" data-id="cj58yqbg20000f4p93tg9j5kp" class="article-share-link">Share</a>
       
       
     </footer>
@@ -186,7 +201,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://longnan963.github.io/2017/07/13/我的第一个博客日志/" data-id="cj58yh9m200035sp993omiay2" class="article-share-link">Share</a>
+      <a data-url="https://longnan963.github.io/2017/07/13/我的第一个博客日志/" data-id="cj58yqbgg0003f4p94f19lvv1" class="article-share-link">Share</a>
       
       
     </footer>
@@ -231,7 +246,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://longnan963.github.io/2017/07/13/hello-world/" data-id="cj58yh9lw00015sp91e8sdwkb" class="article-share-link">Share</a>
+      <a data-url="https://longnan963.github.io/2017/07/13/hello-world/" data-id="cj58yqbg90001f4p93mkz8iyh" class="article-share-link">Share</a>
       
       
     </footer>
