@@ -5,16 +5,16 @@
   
   <title>react的简单使用和注意事项 | longnan</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="react的安装使用全局安装create-react-app1$ npm install create-react-app -g 生成react项目1$ Create-react-app &amp;lt;项目名&amp;gt; 切换到项目名下1$ cd + &amp;lt;项目名&amp;gt; 启动项目1$ npm start 在react中渲染页面1在js模块中首先引入react``` bashimport React fr">
+  <meta name="description" content="react的安装使用全局安装create-react-app1$ npm install create-react-app -g 生成react项目1$ Create-react-app &amp;lt;项目名&amp;gt; 切换到项目名下1$ cd + &amp;lt;项目名&amp;gt; 启动项目1$ npm start 在react中渲染页面1在js模块中首先引入reactimport React from &apos;reac">
 <meta property="og:type" content="article">
 <meta property="og:title" content="react的简单使用和注意事项">
 <meta property="og:url" content="https://longnan963.github.io/2017/07/18/react的简单使用和注意事项/index.html">
 <meta property="og:site_name" content="longnan">
-<meta property="og:description" content="react的安装使用全局安装create-react-app1$ npm install create-react-app -g 生成react项目1$ Create-react-app &amp;lt;项目名&amp;gt; 切换到项目名下1$ cd + &amp;lt;项目名&amp;gt; 启动项目1$ npm start 在react中渲染页面1在js模块中首先引入react``` bashimport React fr">
-<meta property="og:updated_time" content="2017-07-18T02:38:45.150Z">
+<meta property="og:description" content="react的安装使用全局安装create-react-app1$ npm install create-react-app -g 生成react项目1$ Create-react-app &amp;lt;项目名&amp;gt; 切换到项目名下1$ cd + &amp;lt;项目名&amp;gt; 启动项目1$ npm start 在react中渲染页面1在js模块中首先引入reactimport React from &apos;reac">
+<meta property="og:updated_time" content="2017-07-18T02:40:40.890Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="react的简单使用和注意事项">
-<meta name="twitter:description" content="react的安装使用全局安装create-react-app1$ npm install create-react-app -g 生成react项目1$ Create-react-app &amp;lt;项目名&amp;gt; 切换到项目名下1$ cd + &amp;lt;项目名&amp;gt; 启动项目1$ npm start 在react中渲染页面1在js模块中首先引入react``` bashimport React fr">
+<meta name="twitter:description" content="react的安装使用全局安装create-react-app1$ npm install create-react-app -g 生成react项目1$ Create-react-app &amp;lt;项目名&amp;gt; 切换到项目名下1$ cd + &amp;lt;项目名&amp;gt; 启动项目1$ npm start 在react中渲染页面1在js模块中首先引入reactimport React from &apos;reac">
   
     <link rel="alternate" href="/atom.xml" title="longnan" type="application/atom+xml">
   
@@ -93,9 +93,12 @@
 <h3 id="生成react项目"><a href="#生成react项目" class="headerlink" title="生成react项目"></a>生成react项目</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ Create-react-app &lt;项目名&gt;</div></pre></td></tr></table></figure>
 <h3 id="切换到项目名下"><a href="#切换到项目名下" class="headerlink" title="切换到项目名下"></a>切换到项目名下</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ <span class="built_in">cd</span> + &lt;项目名&gt;</div></pre></td></tr></table></figure>
 <h3 id="启动项目"><a href="#启动项目" class="headerlink" title="启动项目"></a>启动项目</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm start</div></pre></td></tr></table></figure>
-<h2 id="在react中渲染页面"><a href="#在react中渲染页面" class="headerlink" title="在react中渲染页面"></a>在react中渲染页面</h2><h3 id="1在js模块中首先引入react"><a href="#1在js模块中首先引入react" class="headerlink" title="1在js模块中首先引入react"></a>1在js模块中首先引入react</h3><p>``` bash<br>import React from ‘react’<br>import ReactDom from ‘react-dom’</p>
-<p>``` bash<br>    ReactDom 控制页面的内容，有两个参数：<br>    第一个参数是渲染的dom元素，第二个参数是渲染的位置，在项目中的index.html中只有一个id为root的div，其他都是添加进去的虚拟dom元素</p>
-<h3 id="2在js模块中会有render方法，且必须有返回值return"><a href="#2在js模块中会有render方法，且必须有返回值return" class="headerlink" title="2在js模块中会有render方法，且必须有返回值return"></a>2在js模块中会有render方法，且必须有返回值return</h3><pre><code>render方法中需要渲染的dom元素必须放在闭合标签中
+<h2 id="在react中渲染页面"><a href="#在react中渲染页面" class="headerlink" title="在react中渲染页面"></a>在react中渲染页面</h2><h3 id="1在js模块中首先引入react"><a href="#1在js模块中首先引入react" class="headerlink" title="1在js模块中首先引入react"></a>1在js模块中首先引入react</h3><pre><code class="bash">import React from <span class="string">'react'</span>
+import ReactDom from <span class="string">'react-dom'</span>
+</code></pre>
+<pre><code>ReactDom 控制页面的内容，有两个参数：
+第一个参数是渲染的dom元素，第二个参数是渲染的位置，在项目中的index.html中只有一个id为root的div，其他都是添加进去的虚拟dom元素
+</code></pre><h3 id="2在js模块中会有render方法，且必须有返回值return"><a href="#2在js模块中会有render方法，且必须有返回值return" class="headerlink" title="2在js模块中会有render方法，且必须有返回值return"></a>2在js模块中会有render方法，且必须有返回值return</h3><pre><code>render方法中需要渲染的dom元素必须放在闭合标签中
 </code></pre><h3 id="3组件"><a href="#3组件" class="headerlink" title="3组件"></a>3组件</h3><pre><code>1.为了防止index.html中的代码了太大，不易查看，引入了组件
 2.组件就是一个对象，先定义，再抛出，在需要引用的文件中导入就可以了
 3.组件的名字首字母一般是大写，是为了跟dom元素区分开。
@@ -144,7 +147,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://longnan963.github.io/2017/07/18/react的简单使用和注意事项/" data-id="cj58yzp1b0002pcp918txg4d8" class="article-share-link">Share</a>
+      <a data-url="https://longnan963.github.io/2017/07/18/react的简单使用和注意事项/" data-id="cj58z25f40001bwp9roikjis5" class="article-share-link">Share</a>
       
       
     </footer>
