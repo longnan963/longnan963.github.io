@@ -91,12 +91,15 @@
 <h3 id="生成react项目"><a href="#生成react项目" class="headerlink" title="生成react项目"></a>生成react项目</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ Create-react-app &lt;项目名&gt;</div></pre></td></tr></table></figure>
 <h3 id="切换到项目名下"><a href="#切换到项目名下" class="headerlink" title="切换到项目名下"></a>切换到项目名下</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ <span class="built_in">cd</span> + &lt;项目名&gt;</div></pre></td></tr></table></figure>
 <h3 id="启动项目"><a href="#启动项目" class="headerlink" title="启动项目"></a>启动项目</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm start</div></pre></td></tr></table></figure>
-<h2 id="在react中渲染页面"><a href="#在react中渲染页面" class="headerlink" title="在react中渲染页面"></a>在react中渲染页面</h2><h3 id="1在js模块中首先引入react："><a href="#1在js模块中首先引入react：" class="headerlink" title="1在js模块中首先引入react："></a>1在js模块中首先引入react：</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">import React from <span class="string">'react'</span></div><div class="line">import ReactDom from <span class="string">'react-dom'</span></div></pre></td></tr></table></figure>
-
+<h2 id="在react中渲染页面"><a href="#在react中渲染页面" class="headerlink" title="在react中渲染页面"></a>在react中渲染页面</h2><h3 id="1在js模块中首先引入react"><a href="#1在js模块中首先引入react" class="headerlink" title="1在js模块中首先引入react"></a>1在js模块中首先引入react</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">import React from <span class="string">'react'</span></div><div class="line">import ReactDom from <span class="string">'react-dom'</span></div></pre></td></tr></table></figure>
+<pre><code>ReactDom 控制页面的内容，有两个参数：
+第一个参数是渲染的dom元素，第二个参数是渲染的位置，在项目中的index.html中只有一个id为root的div，其他都是添加进去的虚拟dom元素
+</code></pre><h3 id="2在js模块中会有render方法，且必须有返回值return"><a href="#2在js模块中会有render方法，且必须有返回值return" class="headerlink" title="2在js模块中会有render方法，且必须有返回值return"></a>2在js模块中会有render方法，且必须有返回值return</h3><pre><code>render方法中需要渲染的dom元素必须放在闭合标签中
+</code></pre>
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://longnan963.github.io/2017/07/18/react的简单使用和注意事项/" data-id="cj58xi87s0003owp9pis3arvx" class="article-share-link">Share</a>
+      <a data-url="https://longnan963.github.io/2017/07/18/react的简单使用和注意事项/" data-id="cj58xw56v0002x0p93xjhue7z" class="article-share-link">Share</a>
       
       
     </footer>
@@ -133,7 +136,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://longnan963.github.io/2017/07/13/baiduNews-md/" data-id="cj58xi87d0000owp9id1x5f0y" class="article-share-link">Share</a>
+      <a data-url="https://longnan963.github.io/2017/07/13/baiduNews-md/" data-id="cj58xw56i0001x0p9st6lw361" class="article-share-link">Share</a>
       
       
     </footer>
@@ -170,7 +173,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://longnan963.github.io/2017/07/13/我的第一个博客日志/" data-id="cj58xi87p0002owp95ulq3cln" class="article-share-link">Share</a>
+      <a data-url="https://longnan963.github.io/2017/07/13/我的第一个博客日志/" data-id="cj58xw56x0003x0p96e5z0ac8" class="article-share-link">Share</a>
       
       
     </footer>
@@ -215,7 +218,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://longnan963.github.io/2017/07/13/hello-world/" data-id="cj58xi87l0001owp9l52ex1jh" class="article-share-link">Share</a>
+      <a data-url="https://longnan963.github.io/2017/07/13/hello-world/" data-id="cj58xw56a0000x0p9cxeuu01e" class="article-share-link">Share</a>
       
       
     </footer>
