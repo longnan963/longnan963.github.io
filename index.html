@@ -91,32 +91,32 @@
 <h3 id="生成react项目"><a href="#生成react项目" class="headerlink" title="生成react项目"></a>生成react项目</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ Create-react-app &lt;项目名&gt;</div></pre></td></tr></table></figure>
 <h3 id="切换到项目名下"><a href="#切换到项目名下" class="headerlink" title="切换到项目名下"></a>切换到项目名下</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ <span class="built_in">cd</span> + &lt;项目名&gt;</div></pre></td></tr></table></figure>
 <h3 id="启动项目"><a href="#启动项目" class="headerlink" title="启动项目"></a>启动项目</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm start</div></pre></td></tr></table></figure>
-<h2 id="在react中渲染页面"><a href="#在react中渲染页面" class="headerlink" title="在react中渲染页面"></a>在react中渲染页面</h2><h3 id="1在js模块中首先引入react"><a href="#1在js模块中首先引入react" class="headerlink" title="1在js模块中首先引入react"></a>1在js模块中首先引入react</h3><pre><code>import React from &apos;react&apos;
+<h2 id="在react中渲染页面"><a href="#在react中渲染页面" class="headerlink" title="在react中渲染页面"></a>在react中渲染页面</h2><h3 id="1-在js模块中首先引入react"><a href="#1-在js模块中首先引入react" class="headerlink" title="1.在js模块中首先引入react"></a>1.在js模块中首先引入react</h3><pre><code>import React from &apos;react&apos;
 import ReactDom from &apos;react-dom&apos;
 ReactDom 控制页面的内容，有两个参数：
 第一个参数是渲染的dom元素，第二个参数是渲染的位置，在项目中的index.html中只有一个id为root的div，其他都是添加进去的虚拟dom元素
-</code></pre><h3 id="2在js模块中会有render方法，且必须有返回值return"><a href="#2在js模块中会有render方法，且必须有返回值return" class="headerlink" title="2在js模块中会有render方法，且必须有返回值return"></a>2在js模块中会有render方法，且必须有返回值return</h3><pre><code>render方法中需要渲染的dom元素必须放在闭合标签中
-</code></pre><h3 id="3组件"><a href="#3组件" class="headerlink" title="3组件"></a>3组件</h3><pre><code>1.为了防止index.html中的代码了太大，不易查看，引入了组件
+</code></pre><h3 id="2-在js模块中会有render方法，且必须有返回值return"><a href="#2-在js模块中会有render方法，且必须有返回值return" class="headerlink" title="2.在js模块中会有render方法，且必须有返回值return"></a>2.在js模块中会有render方法，且必须有返回值return</h3><pre><code>render方法中需要渲染的dom元素必须放在闭合标签中
+</code></pre><h3 id="3-组件"><a href="#3-组件" class="headerlink" title="3.组件"></a>3.组件</h3><pre><code>1.为了防止index.html中的代码了太大，不易查看，引入了组件
 2.组件就是一个对象，先定义，再抛出，在需要引用的文件中导入就可以了
 3.组件的名字首字母一般是大写，是为了跟dom元素区分开。
 4.组件需要先继承react的方法和属性
 5.在组件中定义变量的初始值，需要在state中定义，修改变量值用setState方法，
 6.组件中的this必须指向组件名，方便调用，在事件中会改变this的指向，用bind(this)重新将this指向组件，在定时器中用箭头函数将this指向组件
 7.组件中插入变量用{}操作
-</code></pre><h3 id="4在项目中最重要的是参数的传递"><a href="#4在项目中最重要的是参数的传递" class="headerlink" title="4在项目中最重要的是参数的传递"></a>4在项目中最重要的是参数的传递</h3><h4 id="1父级向子级传递参数"><a href="#1父级向子级传递参数" class="headerlink" title="1父级向子级传递参数"></a>1父级向子级传递参数</h4><pre><code>1先在子集组件中自定义属性，参数为属性值，
+</code></pre><h3 id="4-在项目中最重要的是参数的传递"><a href="#4-在项目中最重要的是参数的传递" class="headerlink" title="4.在项目中最重要的是参数的传递"></a>4.在项目中最重要的是参数的传递</h3><h4 id="1-父级向子级传递参数"><a href="#1-父级向子级传递参数" class="headerlink" title="1.父级向子级传递参数"></a>1.父级向子级传递参数</h4><pre><code>1.先在子集组件中自定义属性，参数为属性值，
   &lt;CommentList commentList={this.state.commentList}  /&gt;
-2在子集的组件中用props将传递的参数接收过来。但是需要先constructor和super调用一下父级react.Component的props方法
+2.在子集的组件中用props将传递的参数接收过来。但是需要先constructor和super调用一下父级react.Component的props方法
   constructor(props){
     super(props);
   }
-</code></pre><h4 id="2子级向父级传递参数"><a href="#2子级向父级传递参数" class="headerlink" title="2子级向父级传递参数"></a>2子级向父级传递参数</h4><pre><code>子级向父级传递参数用自定义函数处理
-1在子集组件中自定义方法属性
+</code></pre><h4 id="2-子级向父级传递参数"><a href="#2-子级向父级传递参数" class="headerlink" title="2.子级向父级传递参数"></a>2.子级向父级传递参数</h4><pre><code>子级向父级传递参数用自定义函数处理
+1.在子集组件中自定义方法属性
     &lt;CommentForm formHandler = {this.formHandler} /&gt;
-2在父级中声明定义方法formHandler
+2.在父级中声明定义方法formHandler
   formHandler(data){
      console.log(data);
   }
-3在子集中声明自己的方法并调用父级声明的方法formHandler传参数
+3.在子集中声明自己的方法并调用父级声明的方法formHandler传参数
    submitHandler(){
        var obj = {
            author:this.state.author,
@@ -125,7 +125,7 @@ ReactDom 控制页面的内容，有两个参数：
        this.props.formHandler(obj);
    }
 </code></pre><h2 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h2><pre><code>1.在react中参数最好从根父级（app.js）向子集传递，通过props获取方便，如果从子集向父级传递参数，隔得层级比较多的时候很麻烦
-2。处理ajax数据请求时在componentDidMount方法中，即组件加载完的状态，而不是放在render方法中，通过ajax请求改变列表commentList的值，再调用一次render方法重新渲染页面。
+2.处理ajax数据请求时在componentDidMount方法中，即组件加载完的状态，而不是放在render方法中，通过ajax请求改变列表commentList的值，再调用一次render方法重新渲染页面。
     $.ajax({
         url:&apos;http://127.0.0.1:3100/api/comments&apos;,
         type:&apos;get&apos;,
@@ -139,12 +139,12 @@ ReactDom 控制页面的内容，有两个参数：
         }
     });
     在setState方法执行之后，会执行一次render方法
-3如果将ajax请求放在render方法中，那么只要修改render方法中的内容就会发送请求，不合理
+3.如果将ajax请求放在render方法中，那么只要修改render方法中的内容就会发送请求，不合理
 </code></pre>
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://longnan963.github.io/2017/07/18/react的简单使用和注意事项/" data-id="cj58z74030002xcp9ydku0d9c" class="article-share-link">Share</a>
+      <a data-url="https://longnan963.github.io/2017/07/18/react的简单使用和注意事项/" data-id="cj58z9565000208p92n2o1ymo" class="article-share-link">Share</a>
       
       
     </footer>
@@ -181,7 +181,7 @@ ReactDom 控制页面的内容，有两个参数：
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://longnan963.github.io/2017/07/13/baiduNews-md/" data-id="cj58z73zp0000xcp95aztglc0" class="article-share-link">Share</a>
+      <a data-url="https://longnan963.github.io/2017/07/13/baiduNews-md/" data-id="cj58z955u000008p9k2nsfi0w" class="article-share-link">Share</a>
       
       
     </footer>
@@ -218,7 +218,7 @@ ReactDom 控制页面的内容，有两个参数：
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://longnan963.github.io/2017/07/13/我的第一个博客日志/" data-id="cj58z74050003xcp95iyjm31w" class="article-share-link">Share</a>
+      <a data-url="https://longnan963.github.io/2017/07/13/我的第一个博客日志/" data-id="cj58z9567000308p94syryuj7" class="article-share-link">Share</a>
       
       
     </footer>
@@ -263,7 +263,7 @@ ReactDom 控制页面的内容，有两个参数：
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://longnan963.github.io/2017/07/13/hello-world/" data-id="cj58z73zx0001xcp9uank7t1s" class="article-share-link">Share</a>
+      <a data-url="https://longnan963.github.io/2017/07/13/hello-world/" data-id="cj58z9561000108p9r0vdcpfg" class="article-share-link">Share</a>
       
       
     </footer>
