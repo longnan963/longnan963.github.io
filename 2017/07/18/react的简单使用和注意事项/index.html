@@ -11,7 +11,7 @@
 <meta property="og:url" content="https://longnan963.github.io/2017/07/18/react的简单使用和注意事项/index.html">
 <meta property="og:site_name" content="longnan">
 <meta property="og:description" content="react的安装使用全局安装create-react-app1$ npm install create-react-app -g 生成react项目1$ Create-react-app &amp;lt;项目名&amp;gt; 切换到项目名下1$ cd + &amp;lt;项目名&amp;gt; 启动项目1$ npm start 在react中渲染页面1在js模块中首先引入react12import React from &apos;re">
-<meta property="og:updated_time" content="2017-07-18T02:07:55.017Z">
+<meta property="og:updated_time" content="2017-07-18T02:13:39.102Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="react的简单使用和注意事项">
 <meta name="twitter:description" content="react的安装使用全局安装create-react-app1$ npm install create-react-app -g 生成react项目1$ Create-react-app &amp;lt;项目名&amp;gt; 切换到项目名下1$ cd + &amp;lt;项目名&amp;gt; 启动项目1$ npm start 在react中渲染页面1在js模块中首先引入react12import React from &apos;re">
@@ -58,7 +58,7 @@
         
           <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Zoeken"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://longnan963.github.io"></form>
@@ -97,11 +97,12 @@
 <pre><code>ReactDom 控制页面的内容，有两个参数：
 第一个参数是渲染的dom元素，第二个参数是渲染的位置，在项目中的index.html中只有一个id为root的div，其他都是添加进去的虚拟dom元素
 </code></pre><h3 id="2在js模块中会有render方法，且必须有返回值return"><a href="#2在js模块中会有render方法，且必须有返回值return" class="headerlink" title="2在js模块中会有render方法，且必须有返回值return"></a>2在js模块中会有render方法，且必须有返回值return</h3><pre><code>render方法中需要渲染的dom元素必须放在闭合标签中
-</code></pre>
+</code></pre><p>###组件<br>    1.为了防止index.html中的代码了太大，不易查看，引入了组件<br>    2.组件就是一个对象，先定义，再抛出，在需要引用的文件中导入就可以了<br>    3.组件的名字首字母一般是大写，是为了跟dom元素区分开。<br>    4.组件需要先继承react的方法和属性<br>    5.在组件中定义变量的初始值，需要在state中定义，修改变量值用setState方法，<br>    6.组件中的this必须指向组件名，方便调用，在事件中会改变this的指向，用bind(this)重新将this指向组件，在定时器中用箭头函数将this指向组件<br>    7.组件中插入变量用{}操作</p>
+
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://longnan963.github.io/2017/07/18/react的简单使用和注意事项/" data-id="cj58xw56v0002x0p93xjhue7z" class="article-share-link">Share</a>
+      <a data-url="https://longnan963.github.io/2017/07/18/react的简单使用和注意事项/" data-id="cj58y3i5500024wp9kt3c14ql" class="article-share-link">Delen</a>
       
       
     </footer>
@@ -112,7 +113,7 @@
   
   
     <a href="/2017/07/13/baiduNews-md/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Older</strong>
+      <strong class="article-nav-caption">Ouder</strong>
       <div class="article-nav-title">baiduNews.md</div>
     </a>
   
@@ -135,7 +136,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
+    <h3 class="widget-title">Archieven</h3>
     <div class="widget">
       <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a></li></ul>
     </div>
@@ -145,7 +146,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
+    <h3 class="widget-title">Recente berichten</h3>
     <div class="widget">
       <ul>
         
