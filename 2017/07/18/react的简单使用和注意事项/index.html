@@ -11,7 +11,7 @@
 <meta property="og:url" content="https://longnan963.github.io/2017/07/18/react的简单使用和注意事项/index.html">
 <meta property="og:site_name" content="longnan">
 <meta property="og:description" content="react的安装使用全局安装create-react-app1$ npm install create-react-app -g 生成react项目1$ Create-react-app &amp;lt;项目名&amp;gt; 切换到项目名下1$ cd + &amp;lt;项目名&amp;gt; 启动项目1$ npm start 在react中渲染页面1在js模块中首先引入react12import React from &apos;re">
-<meta property="og:updated_time" content="2017-07-18T02:15:45.248Z">
+<meta property="og:updated_time" content="2017-07-18T02:24:25.567Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="react的简单使用和注意事项">
 <meta name="twitter:description" content="react的安装使用全局安装create-react-app1$ npm install create-react-app -g 生成react项目1$ Create-react-app &amp;lt;项目名&amp;gt; 切换到项目名下1$ cd + &amp;lt;项目名&amp;gt; 启动项目1$ npm start 在react中渲染页面1在js模块中首先引入react12import React from &apos;re">
@@ -96,20 +96,25 @@
 <h2 id="在react中渲染页面"><a href="#在react中渲染页面" class="headerlink" title="在react中渲染页面"></a>在react中渲染页面</h2><h3 id="1在js模块中首先引入react"><a href="#1在js模块中首先引入react" class="headerlink" title="1在js模块中首先引入react"></a>1在js模块中首先引入react</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">import React from <span class="string">'react'</span></div><div class="line">import ReactDom from <span class="string">'react-dom'</span></div></pre></td></tr></table></figure>
 <pre><code>ReactDom 控制页面的内容，有两个参数：
 第一个参数是渲染的dom元素，第二个参数是渲染的位置，在项目中的index.html中只有一个id为root的div，其他都是添加进去的虚拟dom元素
-</code></pre><p>```</p>
-<h3 id="2在js模块中会有render方法，且必须有返回值return"><a href="#2在js模块中会有render方法，且必须有返回值return" class="headerlink" title="2在js模块中会有render方法，且必须有返回值return"></a>2在js模块中会有render方法，且必须有返回值return</h3><pre><code>render方法中需要渲染的dom元素必须放在闭合标签中
-</code></pre><h3 id="组件"><a href="#组件" class="headerlink" title="组件"></a>组件</h3><pre><code>1.为了防止index.html中的代码了太大，不易查看，引入了组件
+</code></pre><h3 id="2在js模块中会有render方法，且必须有返回值return"><a href="#2在js模块中会有render方法，且必须有返回值return" class="headerlink" title="2在js模块中会有render方法，且必须有返回值return"></a>2在js模块中会有render方法，且必须有返回值return</h3><pre><code>render方法中需要渲染的dom元素必须放在闭合标签中
+</code></pre><h3 id="3组件"><a href="#3组件" class="headerlink" title="3组件"></a>3组件</h3><pre><code>1.为了防止index.html中的代码了太大，不易查看，引入了组件
 2.组件就是一个对象，先定义，再抛出，在需要引用的文件中导入就可以了
 3.组件的名字首字母一般是大写，是为了跟dom元素区分开。
 4.组件需要先继承react的方法和属性
 5.在组件中定义变量的初始值，需要在state中定义，修改变量值用setState方法，
 6.组件中的this必须指向组件名，方便调用，在事件中会改变this的指向，用bind(this)重新将this指向组件，在定时器中用箭头函数将this指向组件
 7.组件中插入变量用{}操作
+</code></pre><h3 id="4在项目中最重要的是参数的传递"><a href="#4在项目中最重要的是参数的传递" class="headerlink" title="4在项目中最重要的是参数的传递"></a>4在项目中最重要的是参数的传递</h3><h4 id="1父级向子级传递参数"><a href="#1父级向子级传递参数" class="headerlink" title="1父级向子级传递参数"></a>1父级向子级传递参数</h4><pre><code>1先在子集组件中自定义属性，参数为属性值，
+  &lt;CommentList commentList={this.state.commentList}  /&gt;
+2在子集的组件中用props将传递的参数接收过来。但是需要先constructor和super调用一下父级react.Component的props方法
+  constructor(props){
+    super(props);
+  }
 </code></pre>
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://longnan963.github.io/2017/07/18/react的简单使用和注意事项/" data-id="cj58y648p0001xkp9xz3vr349" class="article-share-link">Share</a>
+      <a data-url="https://longnan963.github.io/2017/07/18/react的简单使用和注意事项/" data-id="cj58yh9m000025sp98bg6sidk" class="article-share-link">Share</a>
       
       
     </footer>
