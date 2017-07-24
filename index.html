@@ -213,7 +213,7 @@
         }))
         .pipe(gulp.dest(&apos;dist&apos;))
   );
-处理的是src/app.css，处理完之后的css文件在dist文件夹下压缩css
+处理的是src/app.css，处理完之后的css文件在dist文件夹下
 </code></pre><h2 id="压缩css文件"><a href="#压缩css文件" class="headerlink" title="压缩css文件"></a>压缩css文件</h2><h3 id="安装-1"><a href="#安装-1" class="headerlink" title="安装"></a>安装</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install gulp-cssnano --save-dev</div></pre></td></tr></table></figure>
 <h3 id="使用-1"><a href="#使用-1" class="headerlink" title="使用"></a>使用</h3><pre><code>1.var gulp = require(&apos;gulp&apos;);
 2.var cssnano = require(&apos;gulp-cssnano&apos;);
@@ -222,7 +222,16 @@
     .pipe(cssnano())
     .pipe(gulp.dest(&apos;dist&apos;));
   });
-  处理的是./main.css，处理完之后的css文件在dist文件夹下压缩css
+  处理的是./main.css，处理完之后的css文件在dist文件夹下
+</code></pre><h2 id="使用gulp压缩js和混淆js"><a href="#使用gulp压缩js和混淆js" class="headerlink" title="使用gulp压缩js和混淆js"></a>使用gulp压缩js和混淆js</h2><h3 id="安装-2"><a href="#安装-2" class="headerlink" title="安装"></a>安装</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install --save-dev gulp-uglify</div></pre></td></tr></table></figure>
+<h3 id="使用-2"><a href="#使用-2" class="headerlink" title="使用"></a>使用</h3><pre><code>1.var gulp = require(&apos;gulp&apos;);
+2.var uglify = require(&apos;gulp-uglify&apos;);
+3.gulp.task(&apos;uglifyJs&apos;, function () {
+      gulp.src(&apos;./src/js/*.js&apos;)
+      .pipe(uglify())
+      .pipe(gulp.dest(&apos;dist&apos;));
+  });
+  处理的是./src/js文件夹下的所有js文件，处理完之后的js文件在dist文件夹下
 </code></pre>
       
     </div>
