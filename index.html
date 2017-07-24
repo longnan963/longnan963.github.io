@@ -166,6 +166,78 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-gulp的使用" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/07/19/gulp的使用/" class="article-date">
+  	<time datetime="2017-07-19T01:43:56.000Z" itemprop="datePublished">2017-07-19</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/07/19/gulp的使用/">
+        gulp的使用
+        
+      </a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="使用gulp"><a href="#使用gulp" class="headerlink" title="使用gulp"></a>使用gulp</h2><h3 id="1-全局安装-gulp："><a href="#1-全局安装-gulp：" class="headerlink" title="1. 全局安装 gulp："></a>1. 全局安装 gulp：</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm install --global gulp</div></pre></td></tr></table></figure>
+<h3 id="2-作为项目的开发依赖（devDependencies）安装："><a href="#2-作为项目的开发依赖（devDependencies）安装：" class="headerlink" title="2. 作为项目的开发依赖（devDependencies）安装："></a>2. 作为项目的开发依赖（devDependencies）安装：</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm install --save-dev gulp</div></pre></td></tr></table></figure>
+<h3 id="3-在项目根目录下创建一个名为-gulpfile-js-的文件，引入gulp，设置默认任务"><a href="#3-在项目根目录下创建一个名为-gulpfile-js-的文件，引入gulp，设置默认任务" class="headerlink" title="3. 在项目根目录下创建一个名为 gulpfile.js 的文件，引入gulp，设置默认任务"></a>3. 在项目根目录下创建一个名为 gulpfile.js 的文件，引入gulp，设置默认任务</h3><pre><code>1.var gulp = require(&apos;gulp&apos;);
+2.gulp.task(&apos;default&apos;, function() {
+</code></pre><p>  // 将你的默认的任务代码放在这<br>});</p>
+<h3 id="4-运行-gulp："><a href="#4-运行-gulp：" class="headerlink" title="4. 运行 gulp："></a>4. 运行 gulp：</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ gulp</div></pre></td></tr></table></figure>
+<h2 id="使用gulp给css添加前缀"><a href="#使用gulp给css添加前缀" class="headerlink" title="使用gulp给css添加前缀"></a>使用gulp给css添加前缀</h2><h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm install --save-dev gulp-autoprefixer</div></pre></td></tr></table></figure>
+<h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><pre><code>1.const gulp = require(&apos;gulp&apos;);
+2.const autoprefixer = require(&apos;gulp-autoprefixer&apos;);
+3.gulp.task(&apos;default&apos;, () =&gt;
+    gulp.src(&apos;src/app.css&apos;)
+        .pipe(autoprefixer({
+            browsers: [&apos;last 2 versions&apos;],
+            cascade: false
+        }))
+        .pipe(gulp.dest(&apos;dist&apos;))
+  );
+处理的是src/app.css，处理完之后的css文件在dist文件夹下
+</code></pre>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+      
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
     <article id="post-react的简单使用和注意事项" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">

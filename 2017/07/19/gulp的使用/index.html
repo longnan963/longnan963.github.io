@@ -3,22 +3,22 @@
 <head>
   <meta charset="utf-8">
   
-  <title>百度新闻移动端项目 | longnan</title>
+  <title>gulp的使用 | longnan</title>
 
   <!-- keywords -->
   
 
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="项目介绍后台1.页面用bootstrap搭建 2.实现了数据的增删查改 3.实现了数据的分页 前台注册页面1.输入框的验证 2.用户名与后台数据的验证 登录页面1.验证用户名是否存在 2.用户名和密码与后台数据校验 前台页面1.实现动态数据 2.数据的懒加载 3.根据分类查询不同的内容 4.时间的处理 项目使用的技术1.整个项目使用nodejs+express框架搭建 2.后台页面使用了boots">
+  <meta name="description" content="使用gulp1. 全局安装 gulp：1$ npm install --global gulp 2. 作为项目的开发依赖（devDependencies）安装：1$ npm install --save-dev gulp 3. 在项目根目录下创建一个名为 gulpfile.js 的文件，引入gulp，设置默认任务1.var gulp = require(&amp;apos;gulp&amp;apos;); 2.g">
 <meta property="og:type" content="article">
-<meta property="og:title" content="百度新闻移动端项目">
-<meta property="og:url" content="https://longnan963.github.io/2017/07/13/百度新闻移动端项目/index.html">
+<meta property="og:title" content="gulp的使用">
+<meta property="og:url" content="https://longnan963.github.io/2017/07/19/gulp的使用/index.html">
 <meta property="og:site_name" content="longnan">
-<meta property="og:description" content="项目介绍后台1.页面用bootstrap搭建 2.实现了数据的增删查改 3.实现了数据的分页 前台注册页面1.输入框的验证 2.用户名与后台数据的验证 登录页面1.验证用户名是否存在 2.用户名和密码与后台数据校验 前台页面1.实现动态数据 2.数据的懒加载 3.根据分类查询不同的内容 4.时间的处理 项目使用的技术1.整个项目使用nodejs+express框架搭建 2.后台页面使用了boots">
-<meta property="og:updated_time" content="2017-07-24T12:36:43.600Z">
+<meta property="og:description" content="使用gulp1. 全局安装 gulp：1$ npm install --global gulp 2. 作为项目的开发依赖（devDependencies）安装：1$ npm install --save-dev gulp 3. 在项目根目录下创建一个名为 gulpfile.js 的文件，引入gulp，设置默认任务1.var gulp = require(&amp;apos;gulp&amp;apos;); 2.g">
+<meta property="og:updated_time" content="2017-07-24T12:43:35.424Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="百度新闻移动端项目">
-<meta name="twitter:description" content="项目介绍后台1.页面用bootstrap搭建 2.实现了数据的增删查改 3.实现了数据的分页 前台注册页面1.输入框的验证 2.用户名与后台数据的验证 登录页面1.验证用户名是否存在 2.用户名和密码与后台数据校验 前台页面1.实现动态数据 2.数据的懒加载 3.根据分类查询不同的内容 4.时间的处理 项目使用的技术1.整个项目使用nodejs+express框架搭建 2.后台页面使用了boots">
+<meta name="twitter:title" content="gulp的使用">
+<meta name="twitter:description" content="使用gulp1. 全局安装 gulp：1$ npm install --global gulp 2. 作为项目的开发依赖（devDependencies）安装：1$ npm install --save-dev gulp 3. 在项目根目录下创建一个名为 gulpfile.js 的文件，引入gulp，设置默认任务1.var gulp = require(&amp;apos;gulp&amp;apos;); 2.g">
   
     <link rel="alternative" href="/atom.xml" title="longnan" type="application/atom+xml">
   
@@ -168,11 +168,11 @@
 		</header>				
 	</div>
 </nav>
-      <div class="body-wrap"><article id="post-百度新闻移动端项目" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-gulp的使用" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2017/07/13/百度新闻移动端项目/" class="article-date">
-  	<time datetime="2017-07-13T15:13:32.000Z" itemprop="datePublished">2017-07-13</time>
+      <a href="/2017/07/19/gulp的使用/" class="article-date">
+  	<time datetime="2017-07-19T01:43:56.000Z" itemprop="datePublished">2017-07-19</time>
 </a>
     </div>
   
@@ -185,7 +185,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      百度新闻移动端项目
+      gulp的使用
       
     </h1>
   
@@ -203,22 +203,24 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="项目介绍"><a href="#项目介绍" class="headerlink" title="项目介绍"></a>项目介绍</h2><h3 id="后台"><a href="#后台" class="headerlink" title="后台"></a>后台</h3><pre><code>1.页面用bootstrap搭建
-2.实现了数据的增删查改
-3.实现了数据的分页
-</code></pre><h3 id="前台"><a href="#前台" class="headerlink" title="前台"></a>前台</h3><h4 id="注册页面"><a href="#注册页面" class="headerlink" title="注册页面"></a>注册页面</h4><pre><code>1.输入框的验证
-2.用户名与后台数据的验证
-</code></pre><h4 id="登录页面"><a href="#登录页面" class="headerlink" title="登录页面"></a>登录页面</h4><pre><code>1.验证用户名是否存在
-2.用户名和密码与后台数据校验
-</code></pre><h4 id="前台页面"><a href="#前台页面" class="headerlink" title="前台页面"></a>前台页面</h4><pre><code>1.实现动态数据
-2.数据的懒加载
-3.根据分类查询不同的内容
-4.时间的处理
-</code></pre><h3 id="项目使用的技术"><a href="#项目使用的技术" class="headerlink" title="项目使用的技术"></a>项目使用的技术</h3><pre><code>1.整个项目使用nodejs+express框架搭建
-2.后台页面使用了bootstrap
-3.前台页面使用ejs模板，轮播图使用了swiper框架
-4.用jQuery ajax实现的前后台数据交互
-</code></pre><h3 id="代码详情可以链接一下地址"><a href="#代码详情可以链接一下地址" class="headerlink" title="代码详情可以链接一下地址"></a>代码详情可以链接一下地址</h3><pre><code>[链接到百度新闻](https://github.com/longnan963/baiduNews)
+        <h2 id="使用gulp"><a href="#使用gulp" class="headerlink" title="使用gulp"></a>使用gulp</h2><h3 id="1-全局安装-gulp："><a href="#1-全局安装-gulp：" class="headerlink" title="1. 全局安装 gulp："></a>1. 全局安装 gulp：</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm install --global gulp</div></pre></td></tr></table></figure>
+<h3 id="2-作为项目的开发依赖（devDependencies）安装："><a href="#2-作为项目的开发依赖（devDependencies）安装：" class="headerlink" title="2. 作为项目的开发依赖（devDependencies）安装："></a>2. 作为项目的开发依赖（devDependencies）安装：</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm install --save-dev gulp</div></pre></td></tr></table></figure>
+<h3 id="3-在项目根目录下创建一个名为-gulpfile-js-的文件，引入gulp，设置默认任务"><a href="#3-在项目根目录下创建一个名为-gulpfile-js-的文件，引入gulp，设置默认任务" class="headerlink" title="3. 在项目根目录下创建一个名为 gulpfile.js 的文件，引入gulp，设置默认任务"></a>3. 在项目根目录下创建一个名为 gulpfile.js 的文件，引入gulp，设置默认任务</h3><pre><code>1.var gulp = require(&apos;gulp&apos;);
+2.gulp.task(&apos;default&apos;, function() {
+</code></pre><p>  // 将你的默认的任务代码放在这<br>});</p>
+<h3 id="4-运行-gulp："><a href="#4-运行-gulp：" class="headerlink" title="4. 运行 gulp："></a>4. 运行 gulp：</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ gulp</div></pre></td></tr></table></figure>
+<h2 id="使用gulp给css添加前缀"><a href="#使用gulp给css添加前缀" class="headerlink" title="使用gulp给css添加前缀"></a>使用gulp给css添加前缀</h2><h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm install --save-dev gulp-autoprefixer</div></pre></td></tr></table></figure>
+<h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><pre><code>1.const gulp = require(&apos;gulp&apos;);
+2.const autoprefixer = require(&apos;gulp-autoprefixer&apos;);
+3.gulp.task(&apos;default&apos;, () =&gt;
+    gulp.src(&apos;src/app.css&apos;)
+        .pipe(autoprefixer({
+            browsers: [&apos;last 2 versions&apos;],
+            cascade: false
+        }))
+        .pipe(gulp.dest(&apos;dist&apos;))
+  );
+处理的是src/app.css，处理完之后的css文件在dist文件夹下
 </code></pre>
       
     </div>
@@ -228,18 +230,9 @@
     
 <nav id="article-nav">
   
-    <a href="/2017/07/18/react的简单使用和注意事项/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">&lt;</strong>
-      <div class="article-nav-title">
-        
-          react的简单使用和注意事项
-        
-      </div>
-    </a>
   
-  
-    <a href="/2017/07/13/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Hello World</div>
+    <a href="/2017/07/18/react的简单使用和注意事项/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">react的简单使用和注意事项</div>
       <strong class="article-nav-caption">&gt;</strong>
     </a>
   
@@ -249,7 +242,7 @@
 </article>
 
 
-<div class="ds-share share" data-thread-key="百度新闻移动端项目" data-title="百度新闻移动端项目" data-url="https://longnan963.github.io/2017/07/13/百度新闻移动端项目/"  data-images="http://7xkj1z.com1.z0.glb.clouddn.com/head.jpg" data-content="百度新闻移动端项目">
+<div class="ds-share share" data-thread-key="gulp的使用" data-title="gulp的使用" data-url="https://longnan963.github.io/2017/07/19/gulp的使用/"  data-images="http://7xkj1z.com1.z0.glb.clouddn.com/head.jpg" data-content="gulp的使用">
     <div class="ds-share-inline">
       <ul  class="ds-share-icons-16">
       	<li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
