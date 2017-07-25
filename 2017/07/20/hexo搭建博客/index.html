@@ -15,7 +15,7 @@
 <meta property="og:url" content="https://longnan963.github.io/2017/07/20/hexo搭建博客/index.html">
 <meta property="og:site_name" content="longnan">
 <meta property="og:description" content="安装hexo1$ npm install -g hexo-cli 安装hexo之前，电脑上需要提前安装git和nodejs 建站$ hexo init &amp;lt;folder&amp;gt; 初始化hexo项目 $ cd &amp;lt;folder&amp;gt;        切换到项目下 $ npm install        下载所需的依赖 新建完成后有以下目录 . ├── _config.yml ├── pac">
-<meta property="og:updated_time" content="2017-07-25T12:36:46.726Z">
+<meta property="og:updated_time" content="2017-07-25T12:39:50.756Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="使用hexo快速搭建自己的博客">
 <meta name="twitter:description" content="安装hexo1$ npm install -g hexo-cli 安装hexo之前，电脑上需要提前安装git和nodejs 建站$ hexo init &amp;lt;folder&amp;gt; 初始化hexo项目 $ cd &amp;lt;folder&amp;gt;        切换到项目下 $ npm install        下载所需的依赖 新建完成后有以下目录 . ├── _config.yml ├── pac">
@@ -221,6 +221,7 @@ $ npm install        下载所需的依赖
 一般会修改title，subtitle，author，description等配置，其它的一般不动
 此时执行hexo generate和hexo serve，访问localhost：4000就可以看到搭建好的博客
 hexo generate是生成静态文件，hexo serve是启动服务
+注意：YAML依靠缩进来确定元素间的从属关系。因此，在_config.yml进行配置事请确保每个deployer的缩进长度相同，并且使用空格缩进。
 </code></pre><h3 id="要想使自己搭建的博客跟GitHub关联起来，并且用自己定义的地址来访问博客，需要做到以下操作"><a href="#要想使自己搭建的博客跟GitHub关联起来，并且用自己定义的地址来访问博客，需要做到以下操作" class="headerlink" title="要想使自己搭建的博客跟GitHub关联起来，并且用自己定义的地址来访问博客，需要做到以下操作"></a>要想使自己搭建的博客跟GitHub关联起来，并且用自己定义的地址来访问博客，需要做到以下操作</h3><pre><code>1.$ npm install hexo-deployer-git --save
 2.在自己的GitHub上创建一个仓储，起一个.io的名字，
 3.在 _config.yml中配置URL地址，改成http://+仓库的名字
