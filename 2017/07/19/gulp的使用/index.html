@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   
-  <title>gulp的使用 | longnan</title>
+  <title>gulp和Browsersync的使用 | longnan</title>
 
   <!-- keywords -->
   
@@ -11,13 +11,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="使用gulp1. 全局安装 gulp：1$ npm install --global gulp 2. 作为项目的开发依赖（devDependencies）安装：1$ npm install --save-dev gulp 3. 在项目根目录下创建一个名为 gulpfile.js 的文件，引入gulp，设置默认任务1.var gulp = require(&amp;apos;gulp&amp;apos;); 2.g">
 <meta property="og:type" content="article">
-<meta property="og:title" content="gulp的使用">
+<meta property="og:title" content="gulp和Browsersync的使用">
 <meta property="og:url" content="https://longnan963.github.io/2017/07/19/gulp的使用/index.html">
 <meta property="og:site_name" content="longnan">
 <meta property="og:description" content="使用gulp1. 全局安装 gulp：1$ npm install --global gulp 2. 作为项目的开发依赖（devDependencies）安装：1$ npm install --save-dev gulp 3. 在项目根目录下创建一个名为 gulpfile.js 的文件，引入gulp，设置默认任务1.var gulp = require(&amp;apos;gulp&amp;apos;); 2.g">
-<meta property="og:updated_time" content="2017-07-24T12:54:45.427Z">
+<meta property="og:updated_time" content="2017-07-25T11:50:57.725Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="gulp的使用">
+<meta name="twitter:title" content="gulp和Browsersync的使用">
 <meta name="twitter:description" content="使用gulp1. 全局安装 gulp：1$ npm install --global gulp 2. 作为项目的开发依赖（devDependencies）安装：1$ npm install --save-dev gulp 3. 在项目根目录下创建一个名为 gulpfile.js 的文件，引入gulp，设置默认任务1.var gulp = require(&amp;apos;gulp&amp;apos;); 2.g">
   
     <link rel="alternative" href="/atom.xml" title="longnan" type="application/atom+xml">
@@ -185,7 +185,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      gulp的使用
+      gulp和Browsersync的使用
       
     </h1>
   
@@ -240,6 +240,31 @@
       .pipe(gulp.dest(&apos;dist&apos;));
   });
   处理的是./src/js文件夹下的所有js文件，处理完之后的js文件在dist文件夹下
+</code></pre><h2 id="使用Browsersync，让页面和代码同步"><a href="#使用Browsersync，让页面和代码同步" class="headerlink" title="使用Browsersync，让页面和代码同步"></a>使用Browsersync，让页面和代码同步</h2><h3 id="全局安装Browsersync"><a href="#全局安装Browsersync" class="headerlink" title="全局安装Browsersync"></a>全局安装Browsersync</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install -g browser-sync</div></pre></td></tr></table></figure>
+<h3 id="启动Browsersync"><a href="#启动Browsersync" class="headerlink" title="启动Browsersync"></a>启动Browsersync</h3><pre><code>browser-sync start --server --files &quot;css/*.css&quot;
+或browser-sync start --server --files &quot;**&quot;
+</code></pre><h2 id="将Browsersync和gulp结合使用"><a href="#将Browsersync和gulp结合使用" class="headerlink" title="将Browsersync和gulp结合使用"></a>将Browsersync和gulp结合使用</h2><h3 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h3><pre><code>npm install browser-sync gulp --save-dev
+</code></pre><h3 id="使用-3"><a href="#使用-3" class="headerlink" title="使用"></a>使用</h3><pre><code>var gulp = require(&apos;gulp&apos;);
+var browserSync = require(&apos;browser-sync&apos;).create();
+var reload = browserSync.reload;
+</code></pre><h3 id="静态服务器-监听-scss-html-文件"><a href="#静态服务器-监听-scss-html-文件" class="headerlink" title="静态服务器 + 监听 scss/html 文件"></a>静态服务器 + 监听 scss/html 文件</h3><pre><code>gulp.task(&apos;serve&apos;, [&apos;服务名称&apos;], function() {  //自己定义的服务会在serve之前执行
+browserSync.init({
+    server: &quot;./app&quot;//服务的目录
+});
+  gulp.watch(&quot;app/css/*.css&quot;, [&apos;sass&apos;]);//需要监听的文件
+  gulp.watch(&quot;app/*.html&quot;).on(&apos;change&apos;, reload);
+});
+css文件用.pipe(reload({stream: true}));重新加载一下
+例如：gulp.task(&apos;style&apos;, () =&gt;
+gulp.src(&apos;src/style/*.css&apos;)
+    .pipe(autoprefixer({
+        browsers: [&apos;last 40 versions&apos;],
+        cascade: false
+    }))
+    .pipe(cssnano())
+    .pipe(gulp.dest(&apos;dist&apos;))
+    .pipe(reload({stream: true}))
+);
 </code></pre>
       
     </div>
@@ -261,7 +286,7 @@
 </article>
 
 
-<div class="ds-share share" data-thread-key="gulp的使用" data-title="gulp的使用" data-url="https://longnan963.github.io/2017/07/19/gulp的使用/"  data-images="http://7xkj1z.com1.z0.glb.clouddn.com/head.jpg" data-content="gulp的使用">
+<div class="ds-share share" data-thread-key="gulp的使用" data-title="gulp和Browsersync的使用" data-url="https://longnan963.github.io/2017/07/19/gulp的使用/"  data-images="http://7xkj1z.com1.z0.glb.clouddn.com/head.jpg" data-content="gulp和Browsersync的使用">
     <div class="ds-share-inline">
       <ul  class="ds-share-icons-16">
       	<li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
