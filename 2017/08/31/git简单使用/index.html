@@ -15,7 +15,7 @@
 <meta property="og:url" content="https://longnan963.github.io/2017/08/31/git简单使用/index.html">
 <meta property="og:site_name" content="longnan">
 <meta property="og:description" content="git的安装Mac中git的安装安装homebrew,然后借助homebrew windows中git的安装安装gitbash 查看git版本git-version检查git是否安装成功 在git中设置自己的用户名和邮箱git config --global user.name xiaolong git config --global user.password zhaoxiaolong963@1">
-<meta property="og:updated_time" content="2017-09-01T01:57:26.949Z">
+<meta property="og:updated_time" content="2017-09-01T03:14:29.536Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="git的简单使用">
 <meta name="twitter:description" content="git的安装Mac中git的安装安装homebrew,然后借助homebrew windows中git的安装安装gitbash 查看git版本git-version检查git是否安装成功 在git中设置自己的用户名和邮箱git config --global user.name xiaolong git config --global user.password zhaoxiaolong963@1">
@@ -208,7 +208,17 @@
 </code></pre><h3 id="查看git版本"><a href="#查看git版本" class="headerlink" title="查看git版本"></a>查看git版本</h3><pre><code>git-version检查git是否安装成功
 </code></pre><h2 id="在git中设置自己的用户名和邮箱"><a href="#在git中设置自己的用户名和邮箱" class="headerlink" title="在git中设置自己的用户名和邮箱"></a>在git中设置自己的用户名和邮箱</h2><pre><code>git config --global user.name xiaolong
 git config --global user.password zhaoxiaolong963@126.com
-</code></pre><h3 id="git-config-l"><a href="#git-config-l" class="headerlink" title="git config -l"></a>git config -l</h3><pre><code>查看设置的信息 
+</code></pre><h3 id="git-config-l"><a href="#git-config-l" class="headerlink" title="git config -l"></a>git config -l</h3><pre><code>查看设置的信息
+</code></pre><h3 id="初始化git仓库"><a href="#初始化git仓库" class="headerlink" title="初始化git仓库"></a>初始化git仓库</h3><pre><code>git init
+生成的.git文件千万不要删除
+</code></pre><h3 id="查看git版本仓库呈现的状态"><a href="#查看git版本仓库呈现的状态" class="headerlink" title="查看git版本仓库呈现的状态"></a>查看git版本仓库呈现的状态</h3><pre><code>git status
+</code></pre><h3 id="在当前文件夹下创建index-html-让git知道你添加了index-html"><a href="#在当前文件夹下创建index-html-让git知道你添加了index-html" class="headerlink" title="在当前文件夹下创建index.html,让git知道你添加了index.html"></a>在当前文件夹下创建index.html,让git知道你添加了index.html</h3><pre><code>git add index.html 
+git status 此时git已查找到你添加了index.html
+</code></pre><h3 id="提交代码"><a href="#提交代码" class="headerlink" title="提交代码"></a>提交代码</h3><pre><code>git commit -m&apos;这是我第一次提交的代码&apos;
+每次在index.html中进行操作后，需要先add再commit
+</code></pre><h3 id="放弃这次修改"><a href="#放弃这次修改" class="headerlink" title="放弃这次修改"></a>放弃这次修改</h3><pre><code>git checkout -- index.html
+</code></pre><h3 id="重置到之前提交的状态"><a href="#重置到之前提交的状态" class="headerlink" title="重置到之前提交的状态"></a>重置到之前提交的状态</h3><pre><code>git reset &lt;commit状态码 3ac34&gt; --hard
+</code></pre><h3 id="提交所有的操作"><a href="#提交所有的操作" class="headerlink" title="提交所有的操作"></a>提交所有的操作</h3><pre><code>git add -A
 </code></pre>
       
     </div>
