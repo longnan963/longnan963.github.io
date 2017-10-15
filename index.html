@@ -184,7 +184,7 @@
   
     <h1 itemprop="name">
       <a class="article-title" href="/2017/10/13/在vue中通过自定义指令实现移动端下拉分页/">
-        在vue中通过自定义指令实现移动端下拉分页
+        在vue中通过自定义指令scroll实现移动端分页
         
       </a>
     </h1>
@@ -198,6 +198,62 @@
         <h3 id="1、在DOM元素中声明自定义指令"><a href="#1、在DOM元素中声明自定义指令" class="headerlink" title="1、在DOM元素中声明自定义指令"></a>1、在DOM元素中声明自定义指令</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;div v-scroll=<span class="string">"loadMore"</span>&gt;</div></pre></td></tr></table></figure>
 <h3 id="2、在实例中使用自定义指令"><a href="#2、在实例中使用自定义指令" class="headerlink" title="2、在实例中使用自定义指令"></a>2、在实例中使用自定义指令</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">directives: &#123;</div><div class="line">    scroll:&#123;</div><div class="line">         <span class="built_in">bind</span>: <span class="keyword">function</span> (el, binding)&#123;</div><div class="line">            <span class="keyword">function</span> <span class="function"><span class="title">isFn</span></span>()&#123;</div><div class="line">            //el是子声明自定义指令的DOM元素</div><div class="line">            //binding是一个对象</div><div class="line">            //判断触发的条件</div><div class="line">              <span class="keyword">if</span>(document.body.scrollTop + window.innerHeight &gt;= el.clientHeight-20) &#123;</div><div class="line">                <span class="built_in">let</span> fnc = binding.value; //bingding.value是指令中的内容，在这里是loadMore</div><div class="line">                fnc(); </div><div class="line">              &#125;</div><div class="line">            &#125;</div><div class="line">            el.__isFn__ = isFn;</div><div class="line">            //绑定scroll事件</div><div class="line">            document.addEventListener(<span class="string">'scroll'</span>,isFn)</div><div class="line">          &#125;,</div><div class="line">          //unbind只调用一次，指令与元素解绑时调用。</div><div class="line">          unbind:<span class="keyword">function</span>(el,binding)&#123;</div><div class="line">            //将scroll事件解除绑定</div><div class="line">            document.removeEventListener(<span class="string">'scroll'</span>,el.__isFn__);</div><div class="line">            delete el.__isFn__;</div><div class="line">          &#125;</div><div class="line">    &#125;</div><div class="line">  &#125;,</div></pre></td></tr></table></figure>
 <h3 id="3、在methods中定义loadMore方法，执行自己需要的操作，例如AJAX交互"><a href="#3、在methods中定义loadMore方法，执行自己需要的操作，例如AJAX交互" class="headerlink" title="3、在methods中定义loadMore方法，执行自己需要的操作，例如AJAX交互"></a>3、在methods中定义loadMore方法，执行自己需要的操作，例如AJAX交互</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="title">loadMore</span></span>() &#123;</div><div class="line">      //自己需要的操作，例如AJAX交互</div><div class="line">    &#125;,</div></pre></td></tr></table></figure>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+      
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-在vue中通过自定义指令实现移动端下拉刷新" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/10/13/在vue中通过自定义指令实现移动端下拉刷新/" class="article-date">
+  	<time datetime="2017-10-13T01:43:56.000Z" itemprop="datePublished">2017-10-13</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/10/13/在vue中通过自定义指令实现移动端下拉刷新/">
+        在vue中通过自定义指令实现移动端下拉刷新
+        
+      </a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="1、在DOM元素中声明自定义指令"><a href="#1、在DOM元素中声明自定义指令" class="headerlink" title="1、在DOM元素中声明自定义指令"></a>1、在DOM元素中声明自定义指令</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&lt;div v-drag=<span class="string">"drag"</span>&gt;</div><div class="line">dragOK = <span class="literal">false</span>//设置开关</div></pre></td></tr></table></figure>
+<h3 id="2、在实例中使用自定义指令"><a href="#2、在实例中使用自定义指令" class="headerlink" title="2、在实例中使用自定义指令"></a>2、在实例中使用自定义指令</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div></pre></td><td class="code"><pre><div class="line">directives: &#123;</div><div class="line">    drag:&#123;</div><div class="line">        <span class="built_in">bind</span>:<span class="keyword">function</span> (el, binding,vnode) &#123;</div><div class="line">          <span class="built_in">let</span> oDiv = el;   //当前元素</div><div class="line">          <span class="built_in">let</span> _this = vnode.context;  //上下文</div><div class="line">          oDiv.addEventListener(<span class="string">'touchstart'</span>,<span class="keyword">function</span>(ev)&#123;</div><div class="line">            <span class="keyword">if</span>(_this.dragOK) <span class="built_in">return</span>;</div><div class="line">            _this.dragOK = <span class="literal">true</span>;</div><div class="line">             <span class="built_in">let</span> disY = ev.touches[0].pageY - oDiv.offsetTop;</div><div class="line">            <span class="keyword">function</span> fnMove(ev)&#123;</div><div class="line">                <span class="built_in">let</span> t = ev.touches[0].pageY - disY;</div><div class="line">                <span class="keyword">if</span>(t&gt;=50)&#123;</div><div class="line">                  t = 50;</div><div class="line">                &#125;</div><div class="line">                <span class="keyword">if</span>(t&lt;=0)&#123;</div><div class="line">                    t=0;</div><div class="line">                &#125;</div><div class="line">                $(<span class="string">'.el-icon-loading-div2'</span>).css(<span class="string">'height'</span>,t+<span class="string">'px'</span>);</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">function</span> <span class="function"><span class="title">fnEnd</span></span>()&#123;</div><div class="line">              $(oDiv).css(<span class="string">'transition'</span>,<span class="string">'1s all ease'</span>);</div><div class="line">              $(<span class="string">'.el-icon-loading-div2'</span>).css(<span class="string">'transition'</span>,<span class="string">'0.5s all ease'</span>);</div><div class="line">              $(<span class="string">'.el-icon-loading-div2'</span>).css(<span class="string">'height'</span>,0);</div><div class="line">                _this.arr = [];</div><div class="line">               <span class="built_in">let</span> fnc = binding.value;  </div><div class="line">               fnc(); </div><div class="line">              oDiv.addEventListener(<span class="string">"transitionend"</span>,<span class="function"><span class="title">function</span></span>()&#123;</div><div class="line">                _this.dragOK = <span class="literal">false</span>;</div><div class="line">              &#125;)</div><div class="line">              $(<span class="string">'.el-icon-loading-div2'</span>).on(<span class="string">'transitionend'</span>,<span class="function"><span class="title">function</span></span>()&#123;</div><div class="line">                _this.dragOK = <span class="literal">false</span>;</div><div class="line">              &#125;);</div><div class="line">              document.removeEventListener(<span class="string">'touchmove'</span>,fnMove,<span class="literal">false</span>);</div><div class="line">              document.removeEventListener(<span class="string">'touchend'</span>,fnEnd,<span class="literal">false</span>);</div><div class="line">            &#125;</div><div class="line">            document.addEventListener(<span class="string">'touchmove'</span>,fnMove,<span class="literal">false</span>);</div><div class="line">            document.addEventListener(<span class="string">'touchend'</span>,fnEnd,<span class="literal">false</span>);</div><div class="line">            ev.preventDefault();</div><div class="line">          &#125;,<span class="literal">false</span>);</div><div class="line">        &#125;</div><div class="line">      &#125;</div><div class="line">  &#125;,</div></pre></td></tr></table></figure>
+<h3 id="3、在methods中定义drag方法，执行自己需要的操作，例如AJAX交互"><a href="#3、在methods中定义drag方法，执行自己需要的操作，例如AJAX交互" class="headerlink" title="3、在methods中定义drag方法，执行自己需要的操作，例如AJAX交互"></a>3、在methods中定义drag方法，执行自己需要的操作，例如AJAX交互</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="title">drag</span></span>() &#123;</div><div class="line">      this.pagenum = 0;//指刷新当前页面</div><div class="line">      this.arr = []//先清空在重新赋值</div><div class="line">      AJAX交互，给arr赋值</div><div class="line">    &#125;,</div></pre></td></tr></table></figure>
       
     </div>
     
