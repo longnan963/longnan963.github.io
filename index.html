@@ -166,6 +166,62 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-在vue中通过自定义指令实现移动端下拉分页" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/10/13/在vue中通过自定义指令实现移动端下拉分页/" class="article-date">
+  	<time datetime="2017-10-13T01:43:56.000Z" itemprop="datePublished">2017-10-13</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/10/13/在vue中通过自定义指令实现移动端下拉分页/">
+        在vue中通过自定义指令实现移动端下拉分页
+        
+      </a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="1、在DOM元素中声明自定义指令"><a href="#1、在DOM元素中声明自定义指令" class="headerlink" title="1、在DOM元素中声明自定义指令"></a>1、在DOM元素中声明自定义指令</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;div v-scroll=<span class="string">"loadMore"</span>&gt;</div></pre></td></tr></table></figure>
+<h3 id="2、在实例中使用自定义指令"><a href="#2、在实例中使用自定义指令" class="headerlink" title="2、在实例中使用自定义指令"></a>2、在实例中使用自定义指令</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">directives: &#123;</div><div class="line">    scroll:&#123;</div><div class="line">         <span class="built_in">bind</span>: <span class="keyword">function</span> (el, binding)&#123;</div><div class="line">            <span class="keyword">function</span> <span class="function"><span class="title">isFn</span></span>()&#123;</div><div class="line">            //el是子声明自定义指令的DOM元素</div><div class="line">            //binding是一个对象</div><div class="line">            //判断触发的条件</div><div class="line">              <span class="keyword">if</span>(document.body.scrollTop + window.innerHeight &gt;= el.clientHeight-20) &#123;</div><div class="line">                <span class="built_in">let</span> fnc = binding.value; //bingding.value是指令中的内容，在这里是loadMore</div><div class="line">                fnc(); </div><div class="line">              &#125;</div><div class="line">            &#125;</div><div class="line">            el.__isFn__ = isFn;</div><div class="line">            //绑定scroll事件</div><div class="line">            document.addEventListener(<span class="string">'scroll'</span>,isFn)</div><div class="line">          &#125;,</div><div class="line">          //unbind只调用一次，指令与元素解绑时调用。</div><div class="line">          unbind:<span class="keyword">function</span>(el,binding)&#123;</div><div class="line">            //将scroll事件解除绑定</div><div class="line">            document.removeEventListener(<span class="string">'scroll'</span>,el.__isFn__);</div><div class="line">            delete el.__isFn__;</div><div class="line">          &#125;</div><div class="line">    &#125;</div><div class="line">  &#125;,</div></pre></td></tr></table></figure>
+<h3 id="3、在methods中定义loadMore方法，执行自己需要的操作，例如AJAX交互"><a href="#3、在methods中定义loadMore方法，执行自己需要的操作，例如AJAX交互" class="headerlink" title="3、在methods中定义loadMore方法，执行自己需要的操作，例如AJAX交互"></a>3、在methods中定义loadMore方法，执行自己需要的操作，例如AJAX交互</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="title">loadMore</span></span>() &#123;</div><div class="line">      //自己需要的操作，例如AJAX交互</div><div class="line">    &#125;,</div></pre></td></tr></table></figure>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+      
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
     <article id="post-git简单使用" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">

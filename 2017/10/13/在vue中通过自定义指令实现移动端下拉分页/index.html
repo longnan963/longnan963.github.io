@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>在vue中通过自定义指令实现移动端下拉分页 | longnan</title>
+
+  <!-- keywords -->
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="1、在DOM元素中声明自定义指令1&amp;lt;div v-scroll=&quot;loadMore&quot;&amp;gt; 2、在实例中使用自定义指令123456789101112131415161718192021222324directives: &amp;#123;    scroll:&amp;#123;         bind: function (el, binding)&amp;#123;            function">
+<meta property="og:type" content="article">
+<meta property="og:title" content="在vue中通过自定义指令实现移动端下拉分页">
+<meta property="og:url" content="https://longnan963.github.io/2017/10/13/在vue中通过自定义指令实现移动端下拉分页/index.html">
+<meta property="og:site_name" content="longnan">
+<meta property="og:description" content="1、在DOM元素中声明自定义指令1&amp;lt;div v-scroll=&quot;loadMore&quot;&amp;gt; 2、在实例中使用自定义指令123456789101112131415161718192021222324directives: &amp;#123;    scroll:&amp;#123;         bind: function (el, binding)&amp;#123;            function">
+<meta property="og:updated_time" content="2017-10-15T06:07:29.779Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="在vue中通过自定义指令实现移动端下拉分页">
+<meta name="twitter:description" content="1、在DOM元素中声明自定义指令1&amp;lt;div v-scroll=&quot;loadMore&quot;&amp;gt; 2、在实例中使用自定义指令123456789101112131415161718192021222324directives: &amp;#123;    scroll:&amp;#123;         bind: function (el, binding)&amp;#123;            function">
+  
+    <link rel="alternative" href="/atom.xml" title="longnan" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="http://7xkj1z.com1.z0.glb.clouddn.com/head.jpg">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+  
+
+  <script src="//cdn.bootcss.com/require.js/2.3.2/require.min.js"></script>
+  <script src="//cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
+
+  
+</head>
+<body>
+  <div id="container">
+    <div id="particles-js"></div>
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="http://7xkj1z.com1.z0.glb.clouddn.com/head.jpg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">小龙</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">我的第一个博客</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						<li>友情链接</li>
+						
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://github.com/smackgg/hexo-theme-smackdown">smackdown</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+			</div>
+		</div>
+	</header>				
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">小龙</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img lazy-src="http://7xkj1z.com1.z0.glb.clouddn.com/head.jpg" class="js-avatar">
+			</div>
+			<hgroup>
+			  <h1 class="header-author">小龙</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">我的第一个博客</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+      <div class="body-wrap"><article id="post-在vue中通过自定义指令实现移动端下拉分页" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/10/13/在vue中通过自定义指令实现移动端下拉分页/" class="article-date">
+  	<time datetime="2017-10-13T01:43:56.000Z" itemprop="datePublished">2017-10-13</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      在vue中通过自定义指令实现移动端下拉分页
+      
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+        
+
+        
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="1、在DOM元素中声明自定义指令"><a href="#1、在DOM元素中声明自定义指令" class="headerlink" title="1、在DOM元素中声明自定义指令"></a>1、在DOM元素中声明自定义指令</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;div v-scroll=<span class="string">"loadMore"</span>&gt;</div></pre></td></tr></table></figure>
+<h3 id="2、在实例中使用自定义指令"><a href="#2、在实例中使用自定义指令" class="headerlink" title="2、在实例中使用自定义指令"></a>2、在实例中使用自定义指令</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">directives: &#123;</div><div class="line">    scroll:&#123;</div><div class="line">         <span class="built_in">bind</span>: <span class="keyword">function</span> (el, binding)&#123;</div><div class="line">            <span class="keyword">function</span> <span class="function"><span class="title">isFn</span></span>()&#123;</div><div class="line">            //el是子声明自定义指令的DOM元素</div><div class="line">            //binding是一个对象</div><div class="line">            //判断触发的条件</div><div class="line">              <span class="keyword">if</span>(document.body.scrollTop + window.innerHeight &gt;= el.clientHeight-20) &#123;</div><div class="line">                <span class="built_in">let</span> fnc = binding.value; //bingding.value是指令中的内容，在这里是loadMore</div><div class="line">                fnc(); </div><div class="line">              &#125;</div><div class="line">            &#125;</div><div class="line">            el.__isFn__ = isFn;</div><div class="line">            //绑定scroll事件</div><div class="line">            document.addEventListener(<span class="string">'scroll'</span>,isFn)</div><div class="line">          &#125;,</div><div class="line">          //unbind只调用一次，指令与元素解绑时调用。</div><div class="line">          unbind:<span class="keyword">function</span>(el,binding)&#123;</div><div class="line">            //将scroll事件解除绑定</div><div class="line">            document.removeEventListener(<span class="string">'scroll'</span>,el.__isFn__);</div><div class="line">            delete el.__isFn__;</div><div class="line">          &#125;</div><div class="line">    &#125;</div><div class="line">  &#125;,</div></pre></td></tr></table></figure>
+<h3 id="3、在methods中定义loadMore方法，执行自己需要的操作，例如AJAX交互"><a href="#3、在methods中定义loadMore方法，执行自己需要的操作，例如AJAX交互" class="headerlink" title="3、在methods中定义loadMore方法，执行自己需要的操作，例如AJAX交互"></a>3、在methods中定义loadMore方法，执行自己需要的操作，例如AJAX交互</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="title">loadMore</span></span>() &#123;</div><div class="line">      //自己需要的操作，例如AJAX交互</div><div class="line">    &#125;,</div></pre></td></tr></table></figure>
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2017/08/31/git简单使用/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">git的简单使用</div>
+      <strong class="article-nav-caption">&gt;</strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="ds-share share" data-thread-key="在vue中通过自定义指令实现移动端下拉分页" data-title="在vue中通过自定义指令实现移动端下拉分页" data-url="https://longnan963.github.io/2017/10/13/在vue中通过自定义指令实现移动端下拉分页/"  data-images="http://7xkj1z.com1.z0.glb.clouddn.com/head.jpg" data-content="在vue中通过自定义指令实现移动端下拉分页">
+    <div class="ds-share-inline">
+      <ul  class="ds-share-icons-16">
+      	<li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+        <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+        <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+        <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+        <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+      </ul>
+      <div class="ds-share-icons-more">
+      </div>
+    </div>
+ </div>
+ 
+
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+      <div class="footer-left">
+        &copy; 2017 小龙
+      </div>
+        <div class="footer-right">
+          <a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/smackgg/hexo-theme-smackdown" target="_blank">Smackdown</a>
+        </div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="/js/main.js"></script>
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js"></script>
+
+
+  </div>
+</body>
+</html>
